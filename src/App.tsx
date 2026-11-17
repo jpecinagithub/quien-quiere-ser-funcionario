@@ -353,10 +353,17 @@ export default function App() {
 
             <div className="options">
               {q.options.map((opt, i) => {
+                // La correcta solo se revela cuando la pregunta queda resuelta
+                // (tras el rebote). Si falla el primer equipo, no se marca:
+                // el otro equipo no debe ver la respuesta.
+                const reveal = turno === "resuelto";
                 let cls = "option";
                 if (selected !== null) {
-                  if (i === q.correct) cls += " correct";
+                  if (reveal && i === q.correct) cls += " correct";
                   else if (i === selected) cls += " wrong";
+                  else cls += " dimmed";
+                } else if (reveal) {
+                  if (i === q.correct) cls += " correct";
                   else cls += " dimmed";
                 }
                 return (
@@ -369,7 +376,7 @@ export default function App() {
                   >
                     <span className="opt-letter">{LETTERS[i]}</span>
                     <span className="opt-text">{opt}</span>
-                    {selected !== null && i === q.correct && (
+                    {reveal && i === q.correct && (
                       <span className="opt-mark">✅</span>
                     )}
                     {selected !== null && i === selected && i !== q.correct && (
