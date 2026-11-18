@@ -67,7 +67,7 @@ export const QUESTIONS: Question[] = [
     correct: 0,
     explanation:
       "Miguel Ángel lo talló en un solo bloque de mármol de Carrara con 26 años.",
-    image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Michelangelo%27s_David_-_right_view_2.jpg/640px-Michelangelo%27s_David_-_right_view_2.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo%27s%20David%202015.jpg?width=640",
     emoji: "🗿",
   },
   {
